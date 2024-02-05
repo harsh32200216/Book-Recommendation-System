@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request
-import pickle
+import pandas as pd
 from difflib import SequenceMatcher
 
-popular = pickle.load(open('popular.pkl', 'rb'))
-pt = pickle.load(open('pt.pkl', 'rb'))
-books = pickle.load(open('books.pkl', 'rb'))
-sim_score = pickle.load(open('similarity_scores.pkl', 'rb'))
+popular = pd.read_pickle('popular.pkl')
+pt = pd.read_pickle('pt.pkl')
+books = pd.read_pickle('books.pkl')
+sim_score = pd.read_pickle('similarity_scores.pkl')
 
 def recommend(book_name):
     ratio = 0
